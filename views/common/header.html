@@ -24,8 +24,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/inquire">문의하기</a>
             </li>
+            {% if user and user.id %}
+            <li class="nav-item">
+                <a class="nav-link" href="/auth/logout">로그아웃</a>
+            </li>
+            {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="/auth">로그인</a>
             </li>
+            {% endif %}
           </ul>
     </header>

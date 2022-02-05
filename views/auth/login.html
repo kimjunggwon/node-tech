@@ -1,0 +1,16 @@
+{% include '../common/header.html' %}
+
+<form action="/auth/login" method="post">
+    <div class="input-group">
+        <label for="user_id">아이디</label>
+        <input type="text" id="user_id" name="user_id">
+    </div>
+    <div class="input-group">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password">
+    </div>
+    <a href="/join" id="join" class="btn">회원가입</a>
+    <button id="login" class="btn" type="submit">로그인</button>
+</form>
+
+{% include '../common/footer.html' %}

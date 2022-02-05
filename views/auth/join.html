@@ -1,0 +1,28 @@
+{% include '../common/header.html' %}
+
+<form action="/auth/join" method="post">
+    <input type="hidden" name="permission" value="1">
+    <div class="input-group">
+        <label for="user_id">아이디</label>
+        <input type="text" id="user_id" name="user_id">
+    </div>
+    <div class="input-group">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password">
+    </div>
+    <div class="input-group">
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div class="input-group">
+        <label for="email">이메일 주소</label>
+        <input type="email" id="email" name="email">
+    </div>
+    <div class="input-group">
+        <label for="birth">생년월일</label>
+        <input type="number" id="birth" name="birth">
+    </div>
+    <button id="join-btn" class="btn" type="submit">회원가입</button>
+</form>
+
+{% include '../common/footer.html' %}
