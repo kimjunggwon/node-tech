@@ -1,6 +1,14 @@
 const express = require('express');
 
+const { User } = require('../models');
+const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
+
 const router = express.Router();
+
+router.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
 
 router.get('/', async (req, res, next) => {
     res.render('index', { title: 'Node-Tech' });
@@ -27,7 +35,11 @@ router.get('/inquire', async (req, res, next) => {
 });
 
 router.get('/auth', async (req, res, next) => {
-    res.render('login', { title: 'login' });
+    res.render('auth/login', { title: 'login' });
+});
+
+router.get('/join', isNotLoggedIn, async (req, res, next) => {
+    res.render('auth/join', { title: 'join' });
 });
 
 module.exports = router;
