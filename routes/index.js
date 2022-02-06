@@ -10,36 +10,41 @@ router.use((req, res, next) => {
     next();
 });
 
-router.get('/', async (req, res, next) => {
+router.get('/', isNotLoggedIn, async (req, res, next) => {
     res.render('index', { title: 'Node-Tech' });
 });
 
-router.get('/intro', async (req, res, next) => {
+router.get('/intro', isNotLoggedIn, async (req, res, next) => {
     res.render('intro', { title: 'Intro' });
 });
 
-router.get('/tech', async (req, res, next) => {
-    res.render('tech_board/index', { title: 'Tech-List' });
+/* 게시판 라우팅 */
+router.get('/tech', isNotLoggedIn, async (req, res, next) => {
+    res.render('tech_board/list', { title: 'Tech-List' });
 });
 
-router.get('/newsletter', async (req, res, next) => {
-    res.render('newsletter_board/index', { title: 'Newletter-List' });
+router.get('/newsletter', isNotLoggedIn, async (req, res, next) => {
+    res.render('newsletter_board/list', { title: 'Newletter-List' });
 });
 
-router.get('/webzine', async (req, res, next) => {
-    res.render('webzine_board/index', { title: 'webzine-List' });
+router.get('/webzine', isNotLoggedIn, async (req, res, next) => {
+    res.render('webzine_board/list', { title: 'webzine-List' });
 });
 
-router.get('/inquire', async (req, res, next) => {
-    res.render('inquire/index', { title: 'inquire' });
+router.get('/notice', isNotLoggedIn, async (req, res, next) => {
+    res.render('notice/list', { title: 'Notice' });
 });
 
-router.get('/auth', async (req, res, next) => {
-    res.render('auth/login', { title: 'login' });
+router.get('/inquire', isNotLoggedIn, async (req, res, next) => {
+    res.render('inquire/inquire', { title: 'Inquire' });
+});
+
+router.get('/auth', isNotLoggedIn, async (req, res, next) => {
+    res.render('auth/login', { title: 'Login' });
 });
 
 router.get('/join', isNotLoggedIn, async (req, res, next) => {
-    res.render('auth/join', { title: 'join' });
+    res.render('auth/join', { title: 'Join' });
 });
 
 module.exports = router;
